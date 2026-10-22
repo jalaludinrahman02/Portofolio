@@ -91,6 +91,50 @@
       align-items: center;
     }
 
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-cyan);
+    }
+
+    /* Menghilangkan sisa aksen hijau di Experience & Foto */
+    .exp-card:hover {
+      border-color: rgba(0, 180, 216, 0.4) !important;
+      background: var(--bg-card-hover);
+    }
+
+    .exp-badge {
+      background: rgba(0, 180, 216, 0.1) !important;
+      border: 1px solid rgba(0, 180, 216, 0.3) !important;
+      color: var(--accent-cyan) !important;
+      font-family: var(--font-code);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+      display: inline-block;
+    }
+
+    .scan-container {
+      border: 1px solid rgba(0, 180, 216, 0.4) !important;
+      box-shadow: 0 0 25px rgba(0, 180, 216, 0.15) !important;
+    }
+
     /* Language Switcher */
     .lang-switcher {
       display: flex;

@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ahmad Jalaludin Rahman - Portofolio Data Analyst & Data Scientist</title>
+  
+  <!-- Font & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg-dark: #0b132b;
+      --bg-card: #1c2541;
+      --bg-card-hover: #232e52;
+      --primary-blue: #3a86ff;
+      --accent-cyan: #00b4d8;
+      --text-white: #ffffff;
+      --text-muted: #94a3b8;
+      --border-color: rgba(255, 255, 255, 0.1);
+      --font-main: 'Plus Jakarta Sans', sans-serif;
+      --font-code: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-white);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(11, 19, 43, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1rem 5%;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--text-white);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo span {
+      color: var(--primary-blue);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-blue);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 9rem 5% 5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(58, 134, 255, 0.1);
+      border: 1px solid rgba(58, 134, 255, 0.3);
+      color: var(--accent-cyan);
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent-cyan);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--accent-cyan);
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.8rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+
+    .btn-primary {
+      background: var(--primary-blue);
+      color: white;
+      box-shadow: 0 4px 20px rgba(58, 134, 255, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(58, 134, 255, 0.6);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-white);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: var(--text-white);
+    }
+
+    .profile-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .profile-img-box {
+      width: 100%;
+      height: 280px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+      background: #0f172a;
+    }
+
+    .profile-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .profile-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .profile-role {
+      color: var(--accent-cyan);
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Section Styles */
+    section {
+      padding: 5rem 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-title i {
+      color: var(--primary-blue);
+    }
+
+    /* Grid Layouts */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* Card */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: all 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary-blue);
+      background: var(--bg-card-hover);
+    }
+
+    .card-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .tag {
+      background: rgba(58, 134, 255, 0.15);
+      color: var(--primary-blue);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-desc {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border-color);
+      padding-top: 1rem;
+    }
+
+    .tech-stack {
+      display: flex;
+      gap: 0.8rem;
+      font-size: 1.1rem;
+      color: var(--text-muted);
+    }
+
+    .link-btn {
+      color: var(--primary-blue);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      border-left: 2px solid var(--border-color);
+      padding-left: 2rem;
+      margin-left: 1rem;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: calc(-2rem - 6px);
+      top: 5px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--primary-blue);
+      box-shadow: 0 0 10px var(--primary-blue);
+    }
+
+    .timeline-date {
+      color: var(--accent-cyan);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .timeline-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .timeline-org {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Certifications Grid */
+    .cert-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+    }
+
+    .cert-icon {
+      font-size: 1.5rem;
+      color: var(--primary-blue);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 3rem 5%;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 7rem;
+      }
+      .profile-card {
+        max-width: 350px;
+        margin: 0 auto;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <i class="fa-solid fa-chart-line"></i> Ahmad<span>Jalaludin</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">Tentang</a></li>
+        <li><a href="#projects">Proyek</a></li>
+        <li><a href="#experience">Pengalaman</a></li>
+        <li><a href="#education">Pendidikan</a></li>
+        <li><a href="#certifications">Sertifikasi</a></li>
+        <li><a href="#contact">Kontak</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero" id="about">
+    <div>
+      <div class="badge">
+        <span class="badge-dot"></span> Open for Data Analyst & Risk Analytics Roles
+      </div>
+      <h1 class="hero-title">Ahmad Jalaludin Rahman</h1>
+      <p class="hero-subtitle">
+        Lulusan <strong>S1 Statistik Universitas Brawijaya</strong> berpengalaman dalam 
+        Analisis Data, Data Science, Spatial Statistics, serta Credit Risk Modeling berbasis Machine Learning.
+      </p>
+      <div class="btn-group">
+        <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-diagram-project"></i> Lihat Proyek</a>
+        <a href="https://github.com/jalaludinrahman02" target="_blank" class="btn btn-outline"><i class="fa-brands fa-github"></i> GitHub Profile</a>
+        <a href="https://linkedin.com" target="_blank" class="btn btn-outline"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+      </div>
+    </div>
+    <div class="profile-card">
+      <div class="profile-img-box">
+        <img src="profile.png" alt="Ahmad Jalaludin Rahman" onerror="this.src='https://via.placeholder.com/300x350/1c2541/ffffff?text=Ahmad+Jalaludin+Rahman'">
+      </div>
+      <div class="profile-name">Ahmad Jalaludin Rahman</div>
+      <div class="profile-role">Statistisian & Data Analyst</div>
+    </div>
+  </header>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="section-header">
+      <h2 class="section-title"><i class="fa-solid fa-code"></i> Proyek Unggulan</h2>
+    </div>
+
+    <div class="grid-3">
+      <!-- Project 1 -->
+      <div class="card">
+        <div class="card-tags">
+          <span class="tag">Credit Risk</span>
+          <span class="tag">Machine Learning</span>
+          <span class="tag">R</span>
+        </div>
+        <h3 class="card-title">Pemodelan Risk Assessment Credit Loan (ID/X Partners)</h3>
+        <p class="card-desc">
+          Membangun model Machine Learning (Logistic Regression & Random Forest) untuk memprediksi risiko gagal bayar pinjaman pada multifinance. Melibatkan feature engineering, WOE & IV, serta penanganan class imbalance (ROC-AUC: 0.7025).
+        </p>
+        <div class="card-footer">
+          <div class="tech-stack">
+            <i class="fa-brands fa-r-project" title="R"></i>
+            <i class="fa-solid fa-database" title="SQL"></i>
+          </div>
+          <a href="https://github.com/jalaludinrahman02/Final-Task-ID-X-Partners" target="_blank" class="link-btn">
+            Repository <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="card">
+        <div class="card-tags">
+          <span class="tag">Spatial Statistics</span>
+          <span class="tag">SKATER</span>
+          <span class="tag">Tugas Akhir / Skripsi</span>
+        </div>
+        <h3 class="card-title">Klaster Spasial Kemiskinan Jawa Timur (SKATER Algorithm)</h3>
+        <p class="card-desc">
+          Model regionalisasi spasial menggunakan algoritma SKATER dan Minimum Spanning Tree di R untuk mengelompokkan 38 Kabupaten/Kota di Jawa Timur berdasarkan indikator kemiskinan dan ketersediaan infrastruktur.
+        </p>
+        <div class="card-footer">
+          <div class="tech-stack">
+            <i class="fa-brands fa-r-project" title="R"></i>
+            <i class="fa-solid fa-map-location-dot" title="Spatial GIS"></i>
+          </div>
+          <a href="https://github.com/jalaludinrahman02/Tugas-Akhir-Skripsi" target="_blank" class="link-btn">
+            Repository <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="card">
+        <div class="card-tags">
+          <span class="tag">Clustering</span>
+          <span class="tag">BPS Kota Malang</span>
+          <span class="tag">Socioeconomic</span>
+        </div>
+        <h3 class="card-title">Segmentasi Pekerja Informal & Pendidikan (BPS Malang)</h3>
+        <p class="card-desc">
+          Penerapan analisis Cluster untuk segmentasi Kabupaten/Kota di Jawa Timur berdasarkan rata-rata pendapatan pekerja informal dan tingkat pendidikan yang ditamatkan guna memberikan masukan kebijakan sosioekonomi daerah.
+        </p>
+        <div class="card-footer">
+          <div class="tech-stack">
+            <i class="fa-solid fa-chart-pie"></i>
+            <i class="fa-solid fa-file-excel"></i>
+          </div>
+          <span class="link-btn" style="color: var(--text-muted);">Internal BPS</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience & Education -->
+  <section id="experience">
+    <div class="grid-2">
+      <!-- Experience Column -->
+      <div>
+        <div class="section-header">
+          <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> Pengalaman Work & Magang</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">ID/X Partners</div>
+            <div class="timeline-title">Project Based Internship - Data Scientist</div>
+            <div class="timeline-org">Credit Risk Modeling & Analytics</div>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">
+              Mengolah data historis multifinance loan, melakukan data cleaning, imputasi missing values, outlier treatment, serta melatih model evaluasi credit risk.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">30 Juni - 1 Agustus 2025</div>
+            <div class="timeline-title">Internship - Staff Divisi Neraca Wilayah & Analisis Statistik</div>
+            <div class="timeline-org">BPS Kota Malang</div>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">
+              Mengolah indikator sosioekonomi regional, analisis deskriptif data publikasi daerah, serta pemodelan klaster sektor informal.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">BPS Kota Malang</div>
+            <div class="timeline-title">Internship - Petugas Lapangan</div>
+            <div class="timeline-org">Badan Pusat Statistik</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">Your24</div>
+            <div class="timeline-title">Part Time - Kepala Produksi</div>
+            <div class="timeline-org">Operasional & Koordinasi Tim</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Education Column -->
+      <div id="education">
+        <div class="section-header">
+          <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Riwayat Pendidikan</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2022 - 2026</div>
+            <div class="timeline-title">Universitas Brawijaya</div>
+            <div class="timeline-org">S1 Statistik / Matematika</div>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">
+              Fokus pada analisis data multinomial, spatial statistics, machine learning, dan teknik pengolahan data survei/sosioekonomi.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2018 - 2022</div>
+            <div class="timeline-title">MA Tahfidzul Qur'an Isy Karima</div>
+            <div class="timeline-org">Pendidikan Menengah Atas</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2015 - 2018</div>
+            <div class="timeline-title">SMP Ar-Rohmah Boarding School</div>
+            <div class="timeline-org">Pendidikan Menengah Pertama</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section id="certifications">
+    <div class="section-header">
+      <h2 class="section-title"><i class="fa-solid fa-certificate"></i> Lisensi & Sertifikasi</h2>
+    </div>
+    <div class="grid-3">
+      <div class="cert-item">
+        <i class="fa-solid fa-graduation-cap cert-icon"></i>
+        <div>
+          <div style="font-weight: 700;">Stanford Online</div>
+          <div style="color: var(--text-muted); font-size: 0.85rem;">STATSX0001: Statistical Learning</div>
+        </div>
+      </div>
+
+      <div class="cert-item">
+        <i class="fa-brands fa-python cert-icon"></i>
+        <div>
+          <div style="font-weight: 700;">IBM</div>
+          <div style="color: var(--text-muted); font-size: 0.85rem;">Python Basics for Data Science</div>
+        </div>
+      </div>
+
+      <div class="cert-item">
+        <i class="fa-solid fa-database cert-icon"></i>
+        <div>
+          <div style="font-weight: 700;">Oracle Academy</div>
+          <div style="color: var(--text-muted); font-size: 0.85rem;">Database Programming with SQL</div>
+        </div>
+      </div>
+
+      <div class="cert-item">
+        <i class="fa-solid fa-network-wired cert-icon"></i>
+        <div>
+          <div style="font-weight: 700;">Cisco Networking Academy</div>
+          <div style="color: var(--text-muted); font-size: 0.85rem;">Data Science Essentials with Python</div>
+        </div>
+      </div>
+
+      <div class="cert-item">
+        <i class="fa-solid fa-award cert-icon"></i>
+        <div>
+          <div style="font-weight: 700;">KOMDIGI (Digital Talent Scholarship)</div>
+          <div style="color: var(--text-muted); font-size: 0.85rem;">Pemrosesan Digital 101 UMKM (2025)</div>
+        </div>
+      </div>
+
+      <div class="cert-item">
+        <i class="fa-solid fa-desktop cert-icon"></i>
+        <div>
+          <div style="font-weight: 700;">Trust Training Partners</div>
+          <div style="color: var(--text-muted); font-size: 0.85rem;">Microsoft Office Desktop Application</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Footer -->
+  <footer id="contact">
+    <div style="max-width: 600px; margin: 0 auto 2rem;">
+      <h2 style="color: var(--text-white); font-size: 1.8rem; margin-bottom: 1rem;">Mari Bekerja Sama</h2>
+      <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+        Saya siap berkontribusi sebagai Data Analyst, Data Scientist, maupun Risk Analyst di perusahaan Anda.
+      </p>
+      <a href="mailto:jalaludinrahman02@gmail.com" class="btn btn-primary">
+        <i class="fa-solid fa-envelope"></i> jalaludinrahman02@gmail.com
+      </a>
+    </div>
+    <p>&copy; 2026 Ahmad Jalaludin Rahman. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

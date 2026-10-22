@@ -3,24 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ahmad Jalaludin Rahman - Portofolio Data Analyst & Data Scientist</title>
+  <title>Ahmad Jalaludin Rahman - Data Scientist & Data Analyst Portfolio</title>
   
   <!-- Font & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
     :root {
-      --bg-dark: #0b132b;
-      --bg-card: #1c2541;
-      --bg-card-hover: #232e52;
+      --bg-dark: #090d16;
+      --bg-card: #131b2e;
+      --bg-card-hover: #1a243d;
       --primary-blue: #3a86ff;
       --accent-cyan: #00b4d8;
+      --accent-green: #39ff14;
       --text-white: #ffffff;
       --text-muted: #94a3b8;
-      --border-color: rgba(255, 255, 255, 0.1);
+      --border-color: rgba(255, 255, 255, 0.08);
       --font-main: 'Plus Jakarta Sans', sans-serif;
       --font-code: 'JetBrains Mono', monospace;
     }
@@ -38,6 +39,10 @@
       font-family: var(--font-main);
       line-height: 1.6;
       overflow-x: hidden;
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
     }
 
     /* Navbar */
@@ -46,10 +51,10 @@
       top: 0;
       width: 100%;
       z-index: 1000;
-      background: rgba(11, 19, 43, 0.85);
+      background: rgba(9, 13, 22, 0.9);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border-color);
-      padding: 1rem 5%;
+      padding: 0.8rem 5%;
     }
 
     .nav-container {
@@ -62,343 +67,722 @@
 
     .logo {
       font-weight: 800;
-      font-size: 1.25rem;
+      font-size: 1.05rem;
       color: var(--text-white);
       text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.6rem;
     }
 
-    .logo span {
-      color: var(--primary-blue);
+    .logo-badge {
+      background: var(--accent-green);
+      color: #000;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-family: var(--font-code);
+      font-weight: 700;
     }
 
-    .nav-links {
+    .nav-actions {
       display: flex;
-      gap: 2rem;
-      list-style: none;
+      gap: 0.8rem;
+      align-items: center;
     }
 
-    .nav-links a {
+    /* Language Switcher */
+    .lang-switcher {
+      display: flex;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 2px;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: none;
       color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 500;
-      transition: color 0.3s;
+      padding: 0.3rem 0.6rem;
+      font-size: 0.75rem;
+      font-family: var(--font-code);
+      font-weight: 700;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: all 0.3s;
     }
 
-    .nav-links a:hover {
-      color: var(--primary-blue);
+    .lang-btn.active {
+      background: var(--border-color);
+      color: var(--accent-green);
+    }
+
+    .btn-sm {
+      padding: 0.45rem 1rem;
+      font-size: 0.85rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-outline-sm {
+      border: 1px solid var(--border-color);
+      color: var(--text-white);
+      background: transparent;
+    }
+
+    .btn-outline-sm:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--text-white);
+    }
+
+    .btn-accent-sm {
+      background: var(--accent-green);
+      color: #000;
+      font-weight: 700;
+    }
+
+    .btn-accent-sm:hover {
+      box-shadow: 0 0 15px rgba(57, 255, 20, 0.5);
+      transform: translateY(-1px);
     }
 
     /* Hero Section */
     .hero {
-      padding: 9rem 5% 5rem;
+      padding: 8rem 5% 3rem;
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr 320px;
-      gap: 4rem;
+      grid-template-columns: 1fr 340px;
+      gap: 3rem;
       align-items: center;
     }
 
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(58, 134, 255, 0.1);
-      border: 1px solid rgba(58, 134, 255, 0.3);
-      color: var(--accent-cyan);
-      padding: 0.4rem 1rem;
-      border-radius: 50px;
+    .hero-tag {
+      color: var(--accent-green);
+      font-family: var(--font-code);
       font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-    }
-
-    .badge-dot {
-      width: 8px;
-      height: 8px;
-      background: var(--accent-cyan);
-      border-radius: 50%;
-      box-shadow: 0 0 10px var(--accent-cyan);
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
     }
 
     .hero-title {
-      font-size: 3rem;
+      font-size: 2.8rem;
       font-weight: 800;
       line-height: 1.2;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
 
-    .hero-subtitle {
-      font-size: 1.1rem;
+    .hero-bio {
       color: var(--text-muted);
+      font-size: 1rem;
       margin-bottom: 2rem;
+      line-height: 1.7;
     }
 
-    .btn-group {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.8rem 1.8rem;
-      border-radius: 8px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s;
-      cursor: pointer;
-      font-size: 0.95rem;
-    }
-
-    .btn-primary {
-      background: var(--primary-blue);
-      color: white;
-      box-shadow: 0 4px 20px rgba(58, 134, 255, 0.4);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 25px rgba(58, 134, 255, 0.6);
-    }
-
-    .btn-outline {
-      background: transparent;
+    .hero-bio strong {
       color: var(--text-white);
-      border: 1px solid var(--border-color);
     }
 
-    .btn-outline:hover {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: var(--text-white);
-    }
-
-    .profile-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 1.5rem;
-      text-align: center;
-    }
-
-    .profile-img-box {
+    /* AI Scanner Photo Box */
+    .scan-container {
+      position: relative;
       width: 100%;
-      height: 280px;
       border-radius: 12px;
-      overflow: hidden;
-      margin-bottom: 1rem;
-      background: #0f172a;
+      background: #000;
+      border: 1px solid rgba(57, 255, 20, 0.4);
+      padding: 8px;
+      box-shadow: 0 0 25px rgba(57, 255, 20, 0.15);
     }
 
-    .profile-img-box img {
+    .scan-box {
+      position: relative;
+      width: 100%;
+      height: 380px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .scan-box img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
-    .profile-name {
-      font-size: 1.2rem;
-      font-weight: 700;
+    .scan-laser {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--accent-green);
+      box-shadow: 0 0 15px var(--accent-green), 0 0 30px var(--accent-green);
+      animation: scanMove 3s infinite ease-in-out;
+      z-index: 5;
     }
 
-    .profile-role {
-      color: var(--accent-cyan);
-      font-size: 0.85rem;
-      margin-bottom: 1rem;
+    @keyframes scanMove {
+      0% { top: 0%; }
+      50% { top: 100%; }
+      100% { top: 0%; }
     }
 
-    /* Section Styles */
-    section {
-      padding: 5rem 5%;
+    .scan-overlay-top {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(0, 0, 0, 0.85);
+      border: 1px solid var(--accent-green);
+      color: var(--accent-green);
+      font-family: var(--font-code);
+      font-size: 0.7rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      z-index: 6;
+    }
+
+    .scan-overlay-bottom {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.85);
+      border: 1px solid var(--accent-green);
+      color: var(--accent-green);
+      font-family: var(--font-code);
+      font-size: 0.7rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      z-index: 6;
+    }
+
+    .corner-bracket {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border: 2px solid var(--accent-green);
+      z-index: 6;
+    }
+
+    .cb-tl { top: 8px; left: 8px; border-right: none; border-bottom: none; }
+    .cb-tr { top: 8px; right: 8px; border-left: none; border-bottom: none; }
+    .cb-bl { bottom: 8px; left: 8px; border-right: none; border-top: none; }
+    .cb-br { bottom: 8px; right: 8px; border-left: none; border-top: none; }
+
+    /* Highlight Banner Stats */
+    .stats-banner {
       max-width: 1200px;
-      margin: 0 auto;
+      margin: 0 auto 4rem;
+      padding: 0 5%;
     }
 
-    .section-header {
-      margin-bottom: 3rem;
-    }
-
-    .section-title {
-      font-size: 2rem;
-      font-weight: 700;
+    .live-status-bar {
+      font-family: var(--font-code);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.5rem;
     }
 
-    .section-title i {
-      color: var(--primary-blue);
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent-green);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--accent-green);
     }
 
-    /* Grid Layouts */
-    .grid-3 {
+    .stats-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
     }
 
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-      gap: 1.5rem;
-    }
-
-    /* Card */
-    .card {
+    .stat-card {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 12px;
       padding: 1.5rem;
       transition: all 0.3s;
+    }
+
+    .stat-card:hover {
+      border-color: rgba(57, 255, 20, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .stat-number {
+      font-family: var(--font-code);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--text-white);
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-number.green { color: var(--accent-green); }
+    .stat-number.cyan { color: var(--accent-cyan); }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Section Styles */
+    section {
+      padding: 4rem 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: var(--font-code);
+      color: var(--accent-green);
+      font-size: 0.8rem;
+      letter-spacing: 1.5px;
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 2rem;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: all 0.3s;
       display: flex;
       flex-direction: column;
     }
 
-    .card:hover {
-      transform: translateY(-4px);
+    .project-card:hover {
+      transform: translateY(-5px);
       border-color: var(--primary-blue);
-      background: var(--bg-card-hover);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     }
 
-    .card-tags {
+    .project-img-wrapper {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .project-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .project-card:hover .project-img-wrapper img {
+      opacity: 1;
+      transform: scale(1.03);
+    }
+
+    .project-class-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--accent-green);
+      color: #000;
+      font-family: var(--font-code);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      z-index: 2;
+    }
+
+    .project-content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .project-tags {
       display: flex;
       gap: 0.5rem;
       flex-wrap: wrap;
       margin-bottom: 1rem;
     }
 
-    .tag {
-      background: rgba(58, 134, 255, 0.15);
-      color: var(--primary-blue);
-      padding: 0.2rem 0.6rem;
-      border-radius: 4px;
-      font-size: 0.75rem;
+    .project-tag {
+      background: rgba(0, 180, 216, 0.15);
+      border: 1px solid rgba(0, 180, 216, 0.3);
+      color: var(--accent-cyan);
+      font-family: var(--font-code);
+      font-size: 0.7rem;
       font-weight: 600;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
     }
 
-    .card-title {
-      font-size: 1.2rem;
+    .project-title {
+      font-size: 1.25rem;
       font-weight: 700;
       margin-bottom: 0.75rem;
     }
 
-    .card-desc {
+    .project-desc {
       color: var(--text-muted);
       font-size: 0.9rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
       flex-grow: 1;
+      line-height: 1.6;
     }
 
-    .card-footer {
+    .project-meta-box {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 0.8rem;
+      margin-bottom: 1.2rem;
+      font-family: var(--font-code);
+      font-size: 0.78rem;
+    }
+
+    .project-meta-item {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      border-top: 1px solid var(--border-color);
-      padding-top: 1rem;
+      margin-bottom: 0.3rem;
     }
 
-    .tech-stack {
-      display: flex;
-      gap: 0.8rem;
-      font-size: 1.1rem;
-      color: var(--text-muted);
-    }
+    .project-meta-item:last-child { margin-bottom: 0; }
+    .project-meta-label { color: var(--text-muted); }
+    .project-meta-value { color: var(--accent-cyan); font-weight: 600; }
 
-    .link-btn {
+    .project-link {
       color: var(--primary-blue);
       text-decoration: none;
       font-weight: 600;
       font-size: 0.9rem;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 0.4rem;
+      transition: color 0.3s;
     }
 
-    /* Timeline */
-    .timeline {
-      position: relative;
-      border-left: 2px solid var(--border-color);
-      padding-left: 2rem;
-      margin-left: 1rem;
+    .project-link:hover { color: var(--accent-cyan); }
+
+    /* Track Record / Experience Cards */
+    .experience-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
     }
 
-    .timeline-item {
-      position: relative;
-      margin-bottom: 2.5rem;
+    .exp-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 1.8rem;
+      transition: all 0.3s;
     }
 
-    .timeline-dot {
-      position: absolute;
-      left: calc(-2rem - 6px);
-      top: 5px;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--primary-blue);
-      box-shadow: 0 0 10px var(--primary-blue);
+    .exp-card:hover {
+      border-color: rgba(57, 255, 20, 0.3);
+      background: var(--bg-card-hover);
     }
 
-    .timeline-date {
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .exp-badge {
+      background: rgba(57, 255, 20, 0.1);
+      border: 1px solid rgba(57, 255, 20, 0.3);
+      color: var(--accent-green);
+      font-family: var(--font-code);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+      display: inline-block;
+    }
+
+    .exp-date {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
       color: var(--accent-cyan);
-      font-size: 0.85rem;
+      font-family: var(--font-code);
+      font-size: 0.78rem;
       font-weight: 600;
-      margin-bottom: 0.2rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 6px;
     }
 
-    .timeline-title {
-      font-size: 1.1rem;
+    .exp-title {
+      font-size: 1.3rem;
       font-weight: 700;
     }
 
-    .timeline-org {
+    .exp-company {
       color: var(--text-muted);
       font-size: 0.95rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
     }
 
-    /* Certifications Grid */
-    .cert-item {
+    .exp-bullets {
+      padding-left: 1.2rem;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    .exp-bullets li {
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+    }
+
+    .exp-bullets li:last-child { margin-bottom: 0; }
+
+    /* Credentials / Certifications Grid */
+    .cred-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .cred-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s;
+    }
+
+    .cred-card:hover {
+      border-color: var(--primary-blue);
+      transform: translateY(-3px);
+    }
+
+    .cred-card.featured {
+      grid-column: span 2;
+      border-color: rgba(58, 134, 255, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      .cred-card.featured { grid-column: span 1; }
+    }
+
+    .cred-type {
+      font-family: var(--font-code);
+      font-size: 0.7rem;
+      color: var(--accent-green);
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+
+    .cred-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .cred-issuer {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .cert-link-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border: 1px solid var(--border-color);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text-white);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .cert-link-btn:hover {
+      background: var(--primary-blue);
+      border-color: var(--primary-blue);
+      color: white;
+    }
+
+    /* Contact Section Layout */
+    .contact-container {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .contact-info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-item-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.2rem;
       display: flex;
       align-items: center;
       gap: 1rem;
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      padding: 1rem 1.25rem;
-      border-radius: 8px;
     }
 
-    .cert-icon {
-      font-size: 1.5rem;
-      color: var(--primary-blue);
+    .contact-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: var(--accent-green);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .contact-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 0.1rem;
+    }
+
+    .contact-value {
+      font-family: var(--font-code);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-white);
+      text-decoration: none;
+    }
+
+    .contact-value:hover { color: var(--accent-green); }
+
+    .contact-form-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-white);
+    }
+
+    .form-input, .form-textarea {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      color: var(--text-white);
+      font-family: var(--font-main);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .form-input:focus, .form-textarea:focus {
+      border-color: var(--accent-green);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 0.9rem;
+      background: var(--accent-green);
+      color: #000;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      transition: all 0.3s;
+    }
+
+    .btn-submit:hover {
+      box-shadow: 0 0 20px rgba(57, 255, 20, 0.5);
+    }
+
+    .form-disclaimer {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      margin-top: 0.8rem;
+      text-align: center;
     }
 
     /* Footer */
     footer {
       border-top: 1px solid var(--border-color);
-      padding: 3rem 5%;
+      padding: 2.5rem 5%;
       text-align: center;
       color: var(--text-muted);
-      font-size: 0.9rem;
+      font-size: 0.85rem;
     }
 
     @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-        padding-top: 7rem;
-      }
-      .profile-card {
-        max-width: 350px;
-        margin: 0 auto;
-      }
-      .nav-links {
-        display: none;
-      }
+      .hero { grid-template-columns: 1fr; padding-top: 6rem; }
+      .scan-container { max-width: 350px; margin: 0 auto; }
+      .contact-container { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -408,266 +792,551 @@
   <nav>
     <div class="nav-container">
       <a href="#" class="logo">
-        <i class="fa-solid fa-chart-line"></i> Ahmad<span>Jalaludin</span>
+        <span class="logo-badge">DS</span> Ahmad Jalaludin Rahman
       </a>
-      <ul class="nav-links">
-        <li><a href="#about">Tentang</a></li>
-        <li><a href="#projects">Proyek</a></li>
-        <li><a href="#experience">Pengalaman</a></li>
-        <li><a href="#education">Pendidikan</a></li>
-        <li><a href="#certifications">Sertifikasi</a></li>
-        <li><a href="#contact">Kontak</a></li>
-      </ul>
+
+      <div class="nav-actions">
+        <!-- Language Switcher -->
+        <div class="lang-switcher">
+          <button class="lang-btn active" onclick="switchLang('ind')" id="btn-ind">IND</button>
+          <button class="lang-btn" onclick="switchLang('eng')" id="btn-eng">ENG</button>
+        </div>
+
+        <!-- Download CV Button -->
+        <a href="Ahmad_Jalaludin_Rahman_CV.pdf" download class="btn-sm btn-outline-sm">
+          <i class="fa-solid fa-download"></i> <span class="txt-cv">Download CV</span>
+        </a>
+
+        <!-- Contact Button -->
+        <a href="#contact" class="btn-sm btn-accent-sm">
+          <i class="fa-solid fa-paper-plane"></i> <span class="txt-contact">Contact</span>
+        </a>
+      </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <header class="hero" id="about">
+  <header class="hero">
     <div>
-      <div class="badge">
-        <span class="badge-dot"></span> Open for Data Analyst & Risk Analytics Roles
-      </div>
-      <h1 class="hero-title">Ahmad Jalaludin Rahman</h1>
-      <p class="hero-subtitle">
-        Lulusan <strong>S1 Statistik Universitas Brawijaya</strong> berpengalaman dalam 
-        Analisis Data, Data Science, Spatial Statistics, serta Credit Risk Modeling berbasis Machine Learning.
+      <div class="hero-tag">WEBSITE // ONLINE PORTFOLIO</div>
+      <h1 class="hero-title" id="hero-heading">
+        Mengolah data menjadi wawasan strategis & solusi cerdas berbasis bukti.
+      </h1>
+      
+      <p class="hero-bio" id="hero-desc">
+        Lulusan <strong>Statistik Universitas Brawijaya</strong> dengan dua keahlian utama sebagai:
+        <br><br>
+        1. <strong>Data Analyst</strong> (Power BI, Excel Dashboard, Analisis Data)<br>
+        2. <strong>Data Scientist</strong> (Machine Learning, Clustering, PCA, R, Python)
       </p>
-      <div class="btn-group">
-        <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-diagram-project"></i> Lihat Proyek</a>
-        <a href="https://github.com/jalaludinrahman02" target="_blank" class="btn btn-outline"><i class="fa-brands fa-github"></i> GitHub Profile</a>
-        <a href="https://linkedin.com" target="_blank" class="btn btn-outline"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <a href="#projects" class="btn-sm btn-accent-sm" style="padding: 0.7rem 1.4rem; font-size: 0.95rem;">
+          <i class="fa-solid fa-eye"></i> <span id="txt-view-proj">Lihat Proyek</span>
+        </a>
+        <a href="https://github.com/jalaludinrahman02" target="_blank" class="btn-sm btn-outline-sm" style="padding: 0.7rem 1.4rem; font-size: 0.95rem;">
+          <i class="fa-brands fa-github"></i> GitHub Profile
+        </a>
       </div>
     </div>
-    <div class="profile-card">
-      <div class="profile-img-box">
-        <img src="profile.jpg" alt="Ahmad Jalaludin Rahman" onerror="this.src='https://via.placeholder.com/300x350/1c2541/ffffff?text=Ahmad+Jalaludin+Rahman'">
+
+    <!-- AI Scanning Photo Frame -->
+    <div class="scan-container">
+      <div class="scan-box">
+        <div class="scan-laser"></div>
+        <div class="corner-bracket cb-tl"></div>
+        <div class="corner-bracket cb-tr"></div>
+        <div class="corner-bracket cb-bl"></div>
+        <div class="corner-bracket cb-br"></div>
+        
+        <div class="scan-overlay-top">detected: ahmad_jalaludin_rahman</div>
+        <div class="scan-overlay-bottom">confidence score: 0.99</div>
+
+        <img src="profile.png" alt="Ahmad Jalaludin Rahman" onerror="this.src='profile.jpeg'">
       </div>
-      <div class="profile-name">Ahmad Jalaludin Rahman</div>
-      <div class="profile-role">Statistisian & Data Analyst</div>
     </div>
   </header>
 
-  <!-- Projects Section -->
-  <section id="projects">
-    <div class="section-header">
-      <h2 class="section-title"><i class="fa-solid fa-code"></i> Proyek Unggulan</h2>
+  <!-- Live Status & Key Metrics Banner -->
+  <div class="stats-banner">
+    <div class="live-status-bar">
+      <span class="live-dot"></span> Malang, Jawa Timur // Oct 22, 2026 // Live Status
     </div>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number green">3.09 / 4.00</div>
+        <div class="stat-label" id="lbl-gpa">IPK, S1 Statistik<br>Universitas Brawijaya</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number cyan">3+</div>
+        <div class="stat-label" id="lbl-proj-stat">Proyek Utama End-to-End<br>Data Science & Analytics</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">1.400+</div>
+        <div class="stat-label" id="lbl-data-stat">Baris Data Terkompilasi<br>& Divalidasi di BPS Malang</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number green">6+</div>
+        <div class="stat-label" id="lbl-cert-stat">Sertifikasi Profesional<br>Stanford, IBM, Oracle, Cisco</div>
+      </div>
+    </div>
+  </div>
 
-    <div class="grid-3">
+  <!-- Featured Projects Section -->
+  <section id="projects">
+    <div class="section-label">PROJECTS</div>
+    <h2 class="section-title" id="txt-proj-title">AI & Data Analytics Project Portfolio</h2>
+
+    <div class="projects-grid">
       <!-- Project 1 -->
-      <div class="card">
-        <div class="card-tags">
-          <span class="tag">Credit Risk</span>
-          <span class="tag">Machine Learning</span>
-          <span class="tag">R</span>
+      <div class="project-card">
+        <div class="project-img-wrapper">
+          <span class="project-class-badge">class: credit_risk</span>
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Credit Risk Assessment">
         </div>
-        <h3 class="card-title">Pemodelan Risk Assessment Credit Loan (ID/X Partners)</h3>
-        <p class="card-desc">
-          Membangun model Machine Learning (Logistic Regression & Random Forest) untuk memprediksi risiko gagal bayar pinjaman pada multifinance. Melibatkan feature engineering, WOE & IV, serta penanganan class imbalance (ROC-AUC: 0.7025).
-        </p>
-        <div class="card-footer">
-          <div class="tech-stack">
-            <i class="fa-brands fa-r-project" title="R"></i>
-            <i class="fa-solid fa-database" title="SQL"></i>
+        <div class="project-content">
+          <div class="project-tags">
+            <span class="project-tag">CLASSIFICATION</span>
+            <span class="project-tag">FINANCE</span>
+            <span class="project-tag">MACHINE LEARNING</span>
           </div>
-          <a href="https://github.com/jalaludinrahman02/Final-Task-ID-X-Partners" target="_blank" class="link-btn">
-            Repository <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          <h3 class="project-title">Credit Risk Assessment (ID/X Partners)</h3>
+          <p class="project-desc" id="p1-desc">
+            Mengembangkan model Machine Learning end-to-end untuk memprediksi risiko gagal bayar pinjaman multifinance melalui EDA, cleaning, WOE & IV feature engineering, serta penanganan imbalanced class.
+          </p>
+          <div class="project-meta-box">
+            <div class="project-meta-item">
+              <span class="project-meta-label">Method:</span>
+              <span class="project-meta-value">Logistic Regression & Random Forest</span>
+            </div>
+            <div class="project-meta-item">
+              <span class="project-meta-label">Evaluation:</span>
+              <span class="project-meta-value">ROC-AUC: 0.7025</span>
+            </div>
+          </div>
+          <a href="https://github.com/jalaludinrahman02/Final-Task-ID-X-Partners" target="_blank" class="project-link">
+            View Repository <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </a>
         </div>
       </div>
 
       <!-- Project 2 -->
-      <div class="card">
-        <div class="card-tags">
-          <span class="tag">Spatial Statistics</span>
-          <span class="tag">SKATER</span>
-          <span class="tag">Tugas Akhir / Skripsi</span>
+      <div class="project-card">
+        <div class="project-img-wrapper">
+          <span class="project-class-badge">class: spatial_stats</span>
+          <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" alt="Klaster Spasial Kemiskinan">
         </div>
-        <h3 class="card-title">Klaster Spasial Kemiskinan Jawa Timur (SKATER Algorithm)</h3>
-        <p class="card-desc">
-          Model regionalisasi spasial menggunakan algoritma SKATER dan Minimum Spanning Tree di R untuk mengelompokkan 38 Kabupaten/Kota di Jawa Timur berdasarkan indikator kemiskinan dan ketersediaan infrastruktur.
-        </p>
-        <div class="card-footer">
-          <div class="tech-stack">
-            <i class="fa-brands fa-r-project" title="R"></i>
-            <i class="fa-solid fa-map-location-dot" title="Spatial GIS"></i>
+        <div class="project-content">
+          <div class="project-tags">
+            <span class="project-tag">SPATIAL ANALYSIS</span>
+            <span class="project-tag">SKATER</span>
+            <span class="project-tag">REGIONALIZATION</span>
           </div>
-          <a href="https://github.com/jalaludinrahman02/Tugas-Akhir-Skripsi" target="_blank" class="link-btn">
-            Repository <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          <h3 class="project-title" id="p2-title">Klaster Spasial Kemiskinan Jawa Timur</h3>
+          <p class="project-desc" id="p2-desc">
+            Regionalisasi spasial menggunakan algoritma SKATER dan Minimum Spanning Tree di R untuk mengelompokkan 38 Kabupaten/Kota di Jawa Timur berdasarkan indikator kemiskinan dan ketersediaan infrastruktur.
+          </p>
+          <div class="project-meta-box">
+            <div class="project-meta-item">
+              <span class="project-meta-label">Method:</span>
+              <span class="project-meta-value">SKATER & Minimum Spanning Tree</span>
+            </div>
+            <div class="project-meta-item">
+              <span class="project-meta-label">Evaluation:</span>
+              <span class="project-meta-value">Spatial Autocorrelation (Moran's I)</span>
+            </div>
+          </div>
+          <a href="https://github.com/jalaludinrahman02/Tugas-Akhir-Skripsi" target="_blank" class="project-link">
+            View Repository <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </a>
         </div>
       </div>
 
       <!-- Project 3 -->
-      <div class="card">
-        <div class="card-tags">
-          <span class="tag">Clustering</span>
-          <span class="tag">BPS Kota Malang</span>
-          <span class="tag">Socioeconomic</span>
+      <div class="project-card">
+        <div class="project-img-wrapper">
+          <span class="project-class-badge">class: data_analytics</span>
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Segmentasi Pekerja Informal">
         </div>
-        <h3 class="card-title">Segmentasi Pekerja Informal & Pendidikan (BPS Malang)</h3>
-        <p class="card-desc">
-          Penerapan analisis Cluster untuk segmentasi Kabupaten/Kota di Jawa Timur berdasarkan rata-rata pendapatan pekerja informal dan tingkat pendidikan yang ditamatkan guna memberikan masukan kebijakan sosioekonomi daerah.
-        </p>
-        <div class="card-footer">
-          <div class="tech-stack">
-            <i class="fa-solid fa-chart-pie"></i>
-            <i class="fa-solid fa-file-excel"></i>
+        <div class="project-content">
+          <div class="project-tags">
+            <span class="project-tag">CLUSTERING</span>
+            <span class="project-tag">SOCIOECONOMIC</span>
+            <span class="project-tag">BPS MALANG</span>
           </div>
-          <span class="link-btn" style="color: var(--text-muted);">Internal BPS</span>
+          <h3 class="project-title" id="p3-title">Segmentasi Pekerja Informal Jatim</h3>
+          <p class="project-desc" id="p3-desc">
+            Penerapan analisis Cluster untuk segmentasi Kabupaten/Kota di Jawa Timur berdasarkan rata-rata pendapatan pekerja informal dan tingkat pendidikan yang ditamatkan sebagai masukan kebijakan daerah.
+          </p>
+          <div class="project-meta-box">
+            <div class="project-meta-item">
+              <span class="project-meta-label">Method:</span>
+              <span class="project-meta-value">K-Means Clustering</span>
+            </div>
+            <div class="project-meta-item">
+              <span class="project-meta-label">Evaluation:</span>
+              <span class="project-meta-value">Silhouette Score & Within SS</span>
+            </div>
+          </div>
+          <span class="project-link" style="color: var(--text-muted);">
+            Internal BPS Project
+          </span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Experience & Education -->
+  <!-- Track Record / Experience Section -->
   <section id="experience">
-    <div class="grid-2">
-      <!-- Experience Column -->
-      <div>
-        <div class="section-header">
-          <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> Pengalaman Work & Magang</h2>
+    <div class="section-label">TRACK RECORD</div>
+    <h2 class="section-title" id="txt-exp-title">Research & Data Experience</h2>
+
+    <div class="experience-list">
+      <!-- Exp 1 -->
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <span class="exp-badge">DATA SCIENCE</span>
+            <h3 class="exp-title">Project-Based Data Scientist Intern</h3>
+            <div class="exp-company">ID/X Partners x Rakamin Academy — Remote</div>
+          </div>
+          <div class="exp-date">AUG – SEP 2026</div>
         </div>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">ID/X Partners</div>
-            <div class="timeline-title">Project Based Internship - Data Scientist</div>
-            <div class="timeline-org">Credit Risk Modeling & Analytics</div>
-            <p style="color: var(--text-muted); font-size: 0.9rem;">
-              Mengolah data historis multifinance loan, melakukan data cleaning, imputasi missing values, outlier treatment, serta melatih model evaluasi credit risk.
-            </p>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">30 Juni - 1 Agustus 2025</div>
-            <div class="timeline-title">Internship - Staff Divisi Neraca Wilayah & Analisis Statistik</div>
-            <div class="timeline-org">BPS Kota Malang</div>
-            <p style="color: var(--text-muted); font-size: 0.9rem;">
-              Mengolah indikator sosioekonomi regional, analisis deskriptif data publikasi daerah, serta pemodelan klaster sektor informal.
-            </p>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">BPS Kota Malang</div>
-            <div class="timeline-title">Internship - Petugas Lapangan</div>
-            <div class="timeline-org">Badan Pusat Statistik</div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">Your24</div>
-            <div class="timeline-title">Part Time - Kepala Produksi</div>
-            <div class="timeline-org">Operasional & Koordinasi Tim</div>
-          </div>
+        <ul class="exp-bullets">
+          <li>Mengembangkan framework klasifikasi dan prediksi credit risk berbasis machine learning end-to-end menggunakan pemrograman R/Python dan pemodelan statistik.</li>
+          <li>Melakukan data preprocessing, feature selection (WOE & IV), handling imbalanced class, serta perlakuan missing values & outliers pada dataset multifinance loan.</li>
+          <li>Mengevaluasi performa model komparatif antara Logistic Regression dan Random Forest menggunakan metrik ROC-AUC (0.7025), Accuracy, Precision, dan Recall.</li>
+        </ul>
+        
+        <div style="margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+          <a href="https://drive.google.com/file/d/1z86MGtKZ1L9uzqEluiS-K61OPMUG5Zxg/view?usp=sharing" target="_blank" class="cert-link-btn" style="display: inline-flex;">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> View Internship Certificate
+          </a>
         </div>
       </div>
 
-      <!-- Education Column -->
-      <div id="education">
-        <div class="section-header">
-          <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Riwayat Pendidikan</h2>
+      <!-- Exp 2 -->
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <span class="exp-badge">STATISTICS & RESEARCH</span>
+            <h3 class="exp-title">Staf Divisi Neraca Wilayah & Analisis Statistik</h3>
+            <div class="exp-company">BPS Kota Malang — Malang, Jawa Timur</div>
+          </div>
+          <div class="exp-date">JUN – AUG 2025</div>
         </div>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">2022 - 2026</div>
-            <div class="timeline-title">Universitas Brawijaya</div>
-            <div class="timeline-org">S1 Statistik / Matematika</div>
-            <p style="color: var(--text-muted); font-size: 0.9rem;">
-              Fokus pada analisis data multinomial, spatial statistics, machine learning, dan teknik pengolahan data survei/sosioekonomi.
-            </p>
-          </div>
+        <ul class="exp-bullets">
+          <li>Mengompilasi dan memvalidasi 1.400+ baris data industri dari 7+ sumber data (IBS, IMK, Bea Cukai) periode 2022-2025 untuk monitoring perkembangan ekonomi wilayah.</li>
+          <li>Melakukan proyek penelitian "Penerapan Analisis Cluster K-Means untuk Segmentasi Kabupaten/Kota di Jatim Berdasarkan Pendapatan Pekerja Informal dan Pendidikan".</li>
+          <li>Mengolah data menggunakan R dan Excel serta menyajikan visualisasi data analitis dalam bentuk tabel dan grafik untuk bahan laporan perencanaan kebijakan.</li>
+        </ul>
+      </div>
 
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">2018 - 2022</div>
-            <div class="timeline-title">MA Tahfidzul Qur'an Isy Karima</div>
-            <div class="timeline-org">Pendidikan Menengah Atas</div>
+      <!-- Exp 3 -->
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <span class="exp-badge">OPERATIONS</span>
+            <h3 class="exp-title">Kepala Produksi</h3>
+            <div class="exp-company">PT Jagat Aroma Indonesia (Your24) — Malang</div>
           </div>
-
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">2015 - 2018</div>
-            <div class="timeline-title">SMP Ar-Rohmah Boarding School</div>
-            <div class="timeline-org">Pendidikan Menengah Pertama</div>
-          </div>
+          <div class="exp-date">DEC 2024 – JUN 2025</div>
         </div>
+        <ul class="exp-bullets">
+          <li>Memimpin tim produksi aromaterapi dengan pencapaian stabil 20 pcs/hari serta meningkatkan kapasitas hingga +100 pcs/minggu untuk pemenuhan target event musiman.</li>
+          <li>Mengelola seluruh operasional dari pengadaan bahan baku, pengendalian kualitas, hingga optimalisasi alur kerja guna efisiensi operasional.</li>
+        </ul>
+      </div>
+
+      <!-- Exp 4 -->
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <span class="exp-badge">FIELD RESEARCH</span>
+            <h3 class="exp-title">Petugas Lapangan & Data Entry</h3>
+            <div class="exp-company">BPS Kota Malang — Malang</div>
+          </div>
+          <div class="exp-date">JUN – JUL 2024</div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Melaksanakan pengumpulan data potensi desa secara langsung di lapangan dan pencatatan demografi wilayah serta wawancara terstruktur dengan responden.</li>
+          <li>Memastikan kualitas dan akurasi entry data survei sesuai standar operasional Badan Pusat Statistik.</li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- Certifications Section -->
-  <section id="certifications">
-    <div class="section-header">
-      <h2 class="section-title"><i class="fa-solid fa-certificate"></i> Lisensi & Sertifikasi</h2>
-    </div>
-    <div class="grid-3">
-      <div class="cert-item">
-        <i class="fa-solid fa-graduation-cap cert-icon"></i>
+  <!-- Education, Certifications, & Achievements Section -->
+  <section id="credentials">
+    <div class="section-label">CREDENTIALS</div>
+    <h2 class="section-title" id="txt-cred-title">Education & Certifications</h2>
+
+    <div class="cred-grid">
+      <!-- Education -->
+      <div class="cred-card featured">
         <div>
-          <div style="font-weight: 700;">Stanford Online</div>
-          <div style="color: var(--text-muted); font-size: 0.85rem;">STATSX0001: Statistical Learning</div>
+          <div class="cred-type">EDUCATION</div>
+          <h3 class="cred-title">Sarjana Statistika (S.Stat)</h3>
+          <div class="cred-issuer">Universitas Brawijaya — Malang (2022 - 2026)</div>
+          <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1rem;">
+            Fokus: Spatial Statistics, Machine Learning, Data Analytics, Regression Analysis, and Multivariate Analysis.
+          </p>
+        </div>
+        <div style="font-family: var(--font-code); color: var(--accent-green); font-weight: 700;">
+          GPA 3.09 / 4.00
         </div>
       </div>
 
-      <div class="cert-item">
-        <i class="fa-brands fa-python cert-icon"></i>
+      <!-- Cert 1: Stanford -->
+      <div class="cred-card">
         <div>
-          <div style="font-weight: 700;">IBM</div>
-          <div style="color: var(--text-muted); font-size: 0.85rem;">Python Basics for Data Science</div>
+          <div class="cred-type">CERTIFICATION</div>
+          <h3 class="cred-title">STATSX0001: Statistical Learning</h3>
+          <div class="cred-issuer">Stanford Online / Lagunita</div>
         </div>
+        <a href="https://drive.google.com/file/d/10zlA3vR9_4k5BBfrzB1pgVFvzOuSpxHy/view" target="_blank" class="cert-link-btn">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> View Certificate
+        </a>
       </div>
 
-      <div class="cert-item">
-        <i class="fa-solid fa-database cert-icon"></i>
+      <!-- Cert 2: IBM -->
+      <div class="cred-card">
         <div>
-          <div style="font-weight: 700;">Oracle Academy</div>
-          <div style="color: var(--text-muted); font-size: 0.85rem;">Database Programming with SQL</div>
+          <div class="cred-type">CERTIFICATION</div>
+          <h3 class="cred-title">Python Basics for Data Science</h3>
+          <div class="cred-issuer">IBM (PY0101EN)</div>
         </div>
+        <a href="https://drive.google.com/file/d/1Q_jyCCDW8ncOGPYidiwP9FIlnZ9Lr4qN/view" target="_blank" class="cert-link-btn">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> View Certificate
+        </a>
       </div>
 
-      <div class="cert-item">
-        <i class="fa-solid fa-network-wired cert-icon"></i>
+      <!-- Cert 3: Oracle -->
+      <div class="cred-card">
         <div>
-          <div style="font-weight: 700;">Cisco Networking Academy</div>
-          <div style="color: var(--text-muted); font-size: 0.85rem;">Data Science Essentials with Python</div>
+          <div class="cred-type">CERTIFICATION</div>
+          <h3 class="cred-title">Database Programming with SQL</h3>
+          <div class="cred-issuer">Oracle Academy</div>
         </div>
+        <a href="https://drive.google.com/file/d/1umP6gRZ0RBHpyXp8P6F43JJM6jAvjH7-/view" target="_blank" class="cert-link-btn">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> View Certificate
+        </a>
       </div>
 
-      <div class="cert-item">
-        <i class="fa-solid fa-award cert-icon"></i>
+      <!-- Cert 4: Cisco -->
+      <div class="cred-card">
         <div>
-          <div style="font-weight: 700;">KOMDIGI (Digital Talent Scholarship)</div>
-          <div style="color: var(--text-muted); font-size: 0.85rem;">Pemrosesan Digital 101 UMKM (2025)</div>
+          <div class="cred-type">CERTIFICATION</div>
+          <h3 class="cred-title">Data Science Essentials with Python</h3>
+          <div class="cred-issuer">Cisco Networking Academy</div>
         </div>
+        <a href="https://drive.google.com/file/d/1hT-uHmQV_JnCSa0qA0hQfkbUiO2ESHKG/view" target="_blank" class="cert-link-btn">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> View Certificate
+        </a>
       </div>
 
-      <div class="cert-item">
-        <i class="fa-solid fa-desktop cert-icon"></i>
+      <!-- Cert 5: Komdigi -->
+      <div class="cred-card">
         <div>
-          <div style="font-weight: 700;">Trust Training Partners</div>
-          <div style="color: var(--text-muted); font-size: 0.85rem;">Microsoft Office Desktop Application</div>
+          <div class="cred-type">CERTIFICATION</div>
+          <h3 class="cred-title">Pertahanan Digital 101 UMKM</h3>
+          <div class="cred-issuer">Digital Talent Scholarship (Komdigi)</div>
         </div>
+        <!-- GANTI HREF DI BAWAH DENGAN LINK GDRIVE ANDA -->
+        <a href="https://drive.google.com/file/d/1WH0krZruGf8tcfoQjJ5bgn7f4Qht0DKZ/view" target="_blank" class="cert-link-btn">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> View Certificate
+        </a>
+      </div>
+
+      <!-- Cert 6: Microsoft -->
+      <div class="cred-card">
+        <div>
+          <div class="cred-type">CERTIFICATION</div>
+          <h3 class="cred-title">Microsoft Office Desktop Application</h3>
+          <div class="cred-issuer">Trust Training Partners</div>
+        </div>
+        <a href="https://drive.google.com/file/d/1MdK0lfg5TPYJbhu4Jqc1MecK2Z_U-u71/view" target="_blank" class="cert-link-btn">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> View Certificate
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Contact & Footer -->
-  <footer id="contact">
-    <div style="max-width: 600px; margin: 0 auto 2rem;">
-      <h2 style="color: var(--text-white); font-size: 1.8rem; margin-bottom: 1rem;">Mari Bekerja Sama</h2>
-      <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
-        Saya siap berkontribusi sebagai Data Analyst, Data Scientist, maupun Risk Analyst di perusahaan Anda.
-      </p>
-      <a href="mailto:jalaludinrahman02@gmail.com" class="btn btn-primary">
-        <i class="fa-solid fa-envelope"></i> jalaludinrahman02@gmail.com
-      </a>
+  <!-- Career Opportunities & Research Collaboration Section -->
+  <section id="contact">
+    <div class="section-label">CONTACT</div>
+    <h2 class="section-title" id="txt-contact-main-title">Career opportunities & research collaboration</h2>
+
+    <div class="contact-container">
+      <!-- Contact Info Cards Column -->
+      <div class="contact-info-list">
+        <div class="contact-item-card">
+          <div class="contact-icon-box"><i class="fa-solid fa-envelope"></i></div>
+          <div>
+            <div class="contact-label">Email</div>
+            <a href="mailto:jalaludinrahman02@gmail.com" class="contact-value">jalaludinrahman02@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="contact-item-card">
+          <div class="contact-icon-box"><i class="fa-brands fa-linkedin-in"></i></div>
+          <div>
+            <div class="contact-label">LinkedIn</div>
+            <a href="https://linkedin.com/in/ahmadjalaludinrahman" target="_blank" class="contact-value">/in/ahmadjalaludinrahman</a>
+          </div>
+        </div>
+
+        <div class="contact-item-card">
+          <div class="contact-icon-box"><i class="fa-brands fa-github"></i></div>
+          <div>
+            <div class="contact-label">GitHub</div>
+            <a href="https://github.com/jalaludinrahman02" target="_blank" class="contact-value">@jalaludinrahman02</a>
+          </div>
+        </div>
+
+        <div class="contact-item-card">
+          <div class="contact-icon-box"><i class="fa-solid fa-phone"></i></div>
+          <div>
+            <div class="contact-label">Phone</div>
+            <a href="https://wa.me/6285157670205" target="_blank" class="contact-value">+62 851-5767-0205</a>
+          </div>
+        </div>
+
+        <div class="contact-item-card">
+          <div class="contact-icon-box"><i class="fa-solid fa-location-dot"></i></div>
+          <div>
+            <div class="contact-label">Location</div>
+            <div class="contact-value">Malang, Jawa Timur, Indonesia</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form Column -->
+      <div class="contact-form-card">
+        <form onsubmit="sendEmail(event)">
+          <div class="form-row">
+            <div class="form-group" style="margin-bottom: 0;">
+              <label for="sender-name">Full Name</label>
+              <input type="text" id="sender-name" class="form-input" placeholder="Your Name" required>
+            </div>
+            <div class="form-group" style="margin-bottom: 0;">
+              <label for="sender-email">Email</label>
+              <input type="email" id="sender-email" class="form-input" placeholder="email@company.com" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" class="form-input" placeholder="Career Opportunities / Research Collaborations" required>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" class="form-textarea" placeholder="Write down the details of your offer..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">
+            <i class="fa-solid fa-paper-plane"></i> <span id="txt-btn-send">Send Message</span>
+          </button>
+
+          <p class="form-disclaimer">
+            This button opens your email app with the message pre-filled, addressed directly to jalaludinrahman02@gmail.com.
+          </p>
+        </form>
+      </div>
     </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
     <p>&copy; 2026 Ahmad Jalaludin Rahman. All rights reserved.</p>
   </footer>
 
+  <!-- Translation & Interactive JS -->
+  <script>
+    const content = {
+      ind: {
+        cv: "Download CV",
+        contact: "Contact",
+        heading: "Mengolah data menjadi wawasan strategis & solusi cerdas berbasis bukti.",
+        bio: `Lulusan <strong>Statistik Universitas Brawijaya</strong> dengan dua keahlian utama sebagai:<br><br>1. <strong>Data Analyst</strong> (Power BI, Excel Dashboard, Analisis Data)<br>2. <strong>Data Scientist</strong> (Machine Learning, Clustering, PCA, R, Python)`,
+        viewProj: "Lihat Proyek",
+        gpa: "IPK, S1 Statistik<br>Universitas Brawijaya",
+        projStat: "Proyek Utama End-to-End<br>Data Science & Analytics",
+        dataStat: "Baris Data Terkompilasi<br>& Divalidasi di BPS Malang",
+        certStat: "Sertifikasi Profesional<br>Stanford, IBM, Oracle, Cisco",
+        projTitle: "AI & Data Analytics Project Portfolio",
+        p1Desc: "Mengembangkan model Machine Learning end-to-end untuk memprediksi risiko gagal bayar pinjaman multifinance melalui EDA, cleaning, WOE & IV feature engineering, serta penanganan imbalanced class.",
+        p2Title: "Klaster Spasial Kemiskinan Jawa Timur",
+        p2Desc: "Regionalisasi spasial menggunakan algoritma SKATER dan Minimum Spanning Tree di R untuk mengelompokkan 38 Kabupaten/Kota di Jawa Timur berdasarkan indikator kemiskinan dan ketersediaan infrastruktur.",
+        p3Title: "Segmentasi Pekerja Informal Jatim",
+        p3Desc: "Penerapan analisis Cluster untuk segmentasi Kabupaten/Kota di Jawa Timur berdasarkan rata-rata pendapatan pekerja informal dan tingkat pendidikan yang ditamatkan sebagai masukan kebijakan daerah.",
+        expTitle: "Research & Data Experience",
+        credTitle: "Education & Certifications",
+        contactMainTitle: "Career opportunities & research collaboration",
+        btnSend: "Send Message"
+      },
+      eng: {
+        cv: "Download CV",
+        contact: "Contact",
+        heading: "Transforming data into strategic insights & evidence-based smart solutions.",
+        bio: `Statistics Graduate from <strong>Universitas Brawijaya</strong> with dual expertise as:<br><br>1. <strong>Data Analyst</strong> (Power BI, Excel Dashboard, Data Analysis)<br>2. <strong>Data Scientist</strong> (Machine Learning, Clustering, PCA, R, Python)`,
+        viewProj: "View Projects",
+        gpa: "GPA, Bachelor of Statistics<br>Universitas Brawijaya",
+        projStat: "End-to-End Key Projects<br>Data Science & Analytics",
+        dataStat: "Compiled & Validated Data Rows<br>at BPS Malang",
+        certStat: "Professional Certifications<br>Stanford, IBM, Oracle, Cisco",
+        projTitle: "AI & Data Analytics Project Portfolio",
+        p1Desc: "Engineered an end-to-end credit risk classification & prediction framework utilizing R/Python programming and statistical modeling for multifinance loan datasets.",
+        p2Title: "Poverty Spatial Clustering in East Java",
+        p2Desc: "Spatial regionalization using SKATER algorithm and Minimum Spanning Tree in R to cluster 38 East Java regencies/cities based on poverty indicators.",
+        p3Title: "Informal Worker Segmentation in East Java",
+        p3Desc: "Applied cluster analysis for regency/city segmentation based on informal worker income and educational attainment to support regional policymaking.",
+        expTitle: "Research & Data Experience",
+        credTitle: "Education & Certifications",
+        contactMainTitle: "Career opportunities & research collaboration",
+        btnSend: "Send Message"
+      }
+    };
+
+    function switchLang(lang) {
+      document.getElementById('btn-ind').classList.toggle('active', lang === 'ind');
+      document.getElementById('btn-eng').classList.toggle('active', lang === 'eng');
+
+      document.querySelector('.txt-cv').textContent = content[lang].cv;
+      document.querySelector('.txt-contact').textContent = content[lang].contact;
+      document.getElementById('hero-heading').textContent = content[lang].heading;
+      document.getElementById('hero-desc').innerHTML = content[lang].bio;
+      document.getElementById('txt-view-proj').textContent = content[lang].viewProj;
+
+      document.getElementById('lbl-gpa').innerHTML = content[lang].gpa;
+      document.getElementById('lbl-proj-stat').innerHTML = content[lang].projStat;
+      document.getElementById('lbl-data-stat').innerHTML = content[lang].dataStat;
+      document.getElementById('lbl-cert-stat').innerHTML = content[lang].certStat;
+
+      document.getElementById('txt-proj-title').textContent = content[lang].projTitle;
+      document.getElementById('p1-desc').textContent = content[lang].p1Desc;
+      document.getElementById('p2-title').textContent = content[lang].p2Title;
+      document.getElementById('p2-desc').textContent = content[lang].p2Desc;
+      document.getElementById('p3-title').textContent = content[lang].p3Title;
+      document.getElementById('p3-desc').textContent = content[lang].p3Desc;
+
+      document.getElementById('txt-exp-title').textContent = content[lang].expTitle;
+      document.getElementById('txt-cred-title').textContent = content[lang].credTitle;
+      document.getElementById('txt-contact-main-title').textContent = content[lang].contactMainTitle;
+      document.getElementById('txt-btn-send').textContent = content[lang].btnSend;
+    }
+
+    function sendEmail(event) {
+      event.preventDefault();
+      const name = document.getElementById('sender-name').value;
+      const email = document.getElementById('sender-email').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+
+      const mailtoUrl = `mailto:jalaludinrahman02@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Name: " + name + "\nEmail: " + email + "\n\nMessage:\n" + message)}`;
+      window.location.href = mailtoUrl;
+    }
+  </script>
 </body>
 </html>

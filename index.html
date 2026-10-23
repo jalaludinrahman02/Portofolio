@@ -26,37 +26,6 @@
       --font-main: 'Plus Jakarta Sans', sans-serif;
       --font-code: 'JetBrains Mono', monospace;
     }
-/* === TAMBAHAN KODE UNTUK MEMBUAT VERTIKAL KE BAWAH === */
-  #experience, #credentials {
-    display: block !important;
-    width: 100% !important;
-    clear: both !important;
-    float: none !important;
-    margin-bottom: 60px !important;
-  }
-
-  /* Jika ada kelas induk pembungkus grid dua kolom, ubah jadi satu kolom */
-  .container, .main-layout, .wrapper, body {
-    grid-template-columns: 1fr !important;
-  }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background-color: var(--bg-dark);
-      color: var(--text-white);
-      font-family: var(--font-main);
-      line-height: 1.6;
-      overflow-x: hidden;
-      background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-      background-size: 32px 32px;
-    }
 
     /* Navbar */
     nav {
@@ -944,6 +913,7 @@
     <h2 class="section-title" id="txt-proj-title">AI & Data Analytics Project Portfolio</h2>
 
     <div class="projects-grid">
+      
       <!-- Project 1 -->
       <div class="project-card">
         <div class="project-img-wrapper">
@@ -1135,6 +1105,9 @@
     </a>
   </div>
 </div>
+      </div>
+  </div>
+</section>
    
 
   <!-- Track Record / Experience Section -->

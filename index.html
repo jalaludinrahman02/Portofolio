@@ -26,7 +26,38 @@
       --font-main: 'Plus Jakarta Sans', sans-serif;
       --font-code: 'JetBrains Mono', monospace;
     }
-    
+    .project-meta-box {
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin: 1.2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .project-meta-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 0.82rem;
+    font-family: var(--font-code);
+  }
+
+  .project-meta-label {
+    color: var(--text-muted);
+    font-weight: 600;
+    min-width: 85px;
+    flex-shrink: 0;
+  }
+
+  .project-meta-value {
+    color: var(--accent-cyan);
+    text-align: right;
+    word-break: break-word;
+  }
+  
 body {
       background-color: var(--bg-dark);
       color: var(--text-white);

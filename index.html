@@ -26,7 +26,19 @@
       --font-main: 'Plus Jakarta Sans', sans-serif;
       --font-code: 'JetBrains Mono', monospace;
     }
+/* === TAMBAHAN KODE UNTUK MEMBUAT VERTIKAL KE BAWAH === */
+  #experience, #credentials {
+    display: block !important;
+    width: 100% !important;
+    clear: both !important;
+    float: none !important;
+    margin-bottom: 60px !important;
+  }
 
+  /* Jika ada kelas induk pembungkus grid dua kolom, ubah jadi satu kolom */
+  .container, .main-layout, .wrapper, body {
+    grid-template-columns: 1fr !important;
+  }
     * {
       margin: 0;
       padding: 0;
